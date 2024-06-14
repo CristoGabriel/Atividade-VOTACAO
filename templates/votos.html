@@ -1,0 +1,24 @@
+{% extends "template.html" %}
+{% block conteudo %}
+<table class="table table-striped table-responsive table-bordered">
+  <thead class="thead-default">
+      <tr>
+          <th> ID </th>
+          <th> Nome </th>
+          <th> Votos</th>
+          <th> </th>
+      </tr>
+  </thead>
+  <tbody>
+      {% for candidato in candidatos %}
+      <tr>
+          <td>{{ candidato.id }}</td>
+          <td>{{ candidato.nome }}</td>
+          <td>{{ candidato.voto }}</td>
+          <td> <a href="{{url_for('confirma', id=candidato.id)}}"> Votar</a> </td>
+          
+      </tr>
+      {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
